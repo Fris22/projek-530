@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "projek/projek-530"
+		},
+		{
+			"path": "projek/css"
+		},
+		{
+			"path": "projek/js"
+		},
+		{
+			"path": "projek/assests"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "projek-530"
+	}
+}
