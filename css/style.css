@@ -277,6 +277,26 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
   
+.side-by-side-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .objective-container:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .mission-container:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .side-by-side-column {
+    flex-basis: 45%;
+    transition: transform 0.3s ease;
+  }
+  
   
   
   
