@@ -72,7 +72,7 @@
 }
 
 .discover img{
-    max-width: 50%;
+    max-width: 20%;
     height: auto;
     animation: blob 20s linear infinite; /* Border animation */
 }
