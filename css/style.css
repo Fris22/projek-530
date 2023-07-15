@@ -187,3 +187,101 @@
     text-align: center;
     padding: 30px;
 }
+
+  /* Styling for the card */
+  .card {
+    position: relative;
+  }
+
+  /* Hidden checkbox to control the pop-up visibility */
+  .card-checkbox {
+    display: none;
+  }
+
+  /* Styling for the pop-up overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  /* Checkbox hack to toggle the pop-up visibility */
+  .card-checkbox:checked ~ .overlay {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear;
+  }
+
+  /* Styling for the pop-up content */
+  .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  /* Styling for the close button */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Fade animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 10s;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Slide 1 background */
+  .slide1 {
+    background-image: url('assests/pintuBelakang.jpg');
+  }
+  
+  /* Slide 2 background */
+  .slide2 {
+    background-image: url('assests/menu.jpg');
+  }
+  
+  /* Slide 3 background */
+  .slide3 {
+    background-image: url('assests/menu.jpg');
+  }
