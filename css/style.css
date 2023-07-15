@@ -67,14 +67,11 @@
 /* About Section */
 
 .discover{
-    
     text-align: center;
-    
     padding: 30px;
 }
 
 .discover img{
-    
     max-width: 50%;
     height: auto;
     animation: blob 20s linear infinite; /* Border animation */
