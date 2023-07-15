@@ -239,29 +239,31 @@
     right: 10px;
     cursor: pointer;
   }
-
-  * {
-    box-sizing: border-box;
+  
+  .images {
+    display: none;
   }
   
-  /* Slideshow container */
-  .slideshow-container {
+  .images img {
+    vertical-align: middle;
+    width: 100%;
+  }
+  
+  .carousel-container {
     max-width: 1000px;
     position: relative;
     margin: auto;
   }
-  
-  /* Hide the images by default */
-  .mySlides {
+
+  .images {
     display: none;
   }
-  
-  /* Fade animation */
-  .fade {
+
+  .images.fade {
     animation-name: fade;
-    animation-duration: 10s;
+    animation-duration: 1.5s;
   }
-  
+
   @keyframes fade {
     from {
       opacity: 0;
@@ -270,18 +272,58 @@
       opacity: 1;
     }
   }
-  
-  /* Slide 1 background */
-  .slide1 {
-    background-image: url('assests/pintuBelakang.jpg');
+
+  .carousel-container img {
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .previous,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .navigation-dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active,
+  .navigation-dot:hover {
+    background-color: #717171;
   }
   
-  /* Slide 2 background */
-  .slide2 {
-    background-image: url('assests/menu.jpg');
-  }
   
-  /* Slide 3 background */
-  .slide3 {
-    background-image: url('assests/menu.jpg');
-  }
+  
+  
+  
+  
+  
+  
