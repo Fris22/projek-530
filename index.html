@@ -1,18 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><!-- Head section: Includes meta tags, external resource links, and webpage title -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/botstrap_modified.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <title>Responsive Food website</title>
 
-    <link rel="stylesheet" href="css/botstrap_modified.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <title>Responsive Food website</title>
+  <style>
+    /* Add styles for the loading circle */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-top: 16px solid #3498db;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Hide the page content initially */
+    .fade-in-container {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+    
+    /* Show the page content after loading */
+    .fade-in-container.loaded {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
 </head>
 <body>
+  <div class="loading-screen">
+    <div class="loader"></div>
+  </div>
+  
+  <div class="fade-in-container">
     <div class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -69,10 +117,6 @@
                 </div>
               </div>
             </div>
-            <!-- Add navigation arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
     </div>
     <div class="discover" id="about">
       <img src="assests/cafe.jpg" alt="Food">
@@ -306,21 +350,32 @@
         loop: true,
       });
     </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+        document.querySelector(".loading-screen").style.display = "none";
+        document.querySelector(".fade-in-container").classList.add("loaded");
+      }, 2000); // Adjust the delay as needed (in milliseconds)
+    });
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="load.js"></script>
     <script>
-      var swiper = new Swiper('.swiper-container', {
-        autoplay: {
-          delay: 3000, // Adjust the delay as needed (in milliseconds)
-        },
-        loop: true, // Enable looping through the slides
+      document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+          document.querySelector(".loading-screen").style.display = "none";
+          document.querySelector(".fade-in-container").style.opacity = "1";
+        }, 2000); // Adjust the delay as needed (in milliseconds)
       });
-    </script>
-    <script>
+  
       document.addEventListener('DOMContentLoaded', function() {
         var popups = document.querySelectorAll('.popup');
         var checkboxes = document.querySelectorAll('.card-checkbox');
-    
+  
         checkboxes.forEach(function(checkbox, index) {
           checkbox.addEventListener('change', function() {
             if (this.checked) {
@@ -330,13 +385,13 @@
             }
           });
         });
-    
+  
         document.addEventListener('click', function(event) {
           if (!event.target.matches('.card-checkbox') && !event.target.matches('.popup') && !event.target.matches('.popup *')) {
             checkboxes.forEach(function(checkbox) {
               checkbox.checked = false;
             });
-    
+  
             popups.forEach(function(popup) {
               popup.style.display = 'none';
             });
@@ -344,12 +399,6 @@
         });
       });
     </script>
-    
-    <div class="row card-dishes">
-      <!-- Rest of your HTML code -->
-    </div>
-    With these updates, the overflow-y property is set to "auto" for the popup, allowing for vertical scrolling if the content exceeds the available space. Additionally, the JavaScript code ensures that the pop-up screen closes when clicking anywhere outside the checkbox or the popup itself.
-    
     
     
     
